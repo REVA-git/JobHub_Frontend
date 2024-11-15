@@ -17,3 +17,4 @@ REACT_APP_GITHUB_CLIENT_ID = your_github_client_id (you can find the client id i
 REACT_APP_API_BASE_URL = your server url ex:-https://job-ui-server.onrender.com
 
 To Push any new changes to vercel run "vercel --prod" in the cmd
+Note:- Update the config.js and displayjobs.js files
