@@ -1,0 +1,135 @@
+.jobs-container {
+  padding: 20px;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.job-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.job-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.job-details-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.job-details-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+.job-details-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.job-details-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.job-details-container .job-details {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.job-details-container .job-creator {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+.job-details-container p a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.job-details-container p a:hover {
+  color: #004499;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.job-creator {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-details-container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .job-details-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .job-details-container p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+}
