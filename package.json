@@ -2,7 +2,7 @@
   "name": "job-try",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Shreyas-M-246418.github.io/job-try",
+  "homepage": "https://REVA-git.github.io/JobHub_Frontend",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "@octokit/rest": "^21.0.2",
