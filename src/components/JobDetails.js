@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import '../styles/DisplayJobsPage.css';
 
 const JobDetails = ({ job, onClose }) => {
@@ -7,25 +6,7 @@ const JobDetails = ({ job, onClose }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const processCompanyInfo = async () => {
-      if (job.companyDescription) {
-        setLoading(true);
-        try {
-          const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
-          const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-          
-          const prompt = `Summarize the following content about company culture and work environment in 200 words: ${job.companyDescription}`;
-          const result = await model.generateContent(prompt);
-          setCompanyInfo(result.response.text());
-        } catch (error) {
-          console.error('Error processing company info:', error);
-          setCompanyInfo(job.companyDescription);
-        }
-        setLoading(false);
-      }
-    };
-
-    processCompanyInfo();
+    setCompanyInfo(job.companyDescription);
   }, [job.companyDescription]);
 
   useEffect(() => {
@@ -98,16 +79,16 @@ const JobDetails = ({ job, onClose }) => {
           <p>{job.description}</p>
         </div>
 
-        {job.companyDescription && (
+        {companyInfo && (
           <div className="company-culture-section">
             <h3>Company Culture & Work Life</h3>
-            {loading ? (
-              <div className="loader"></div>
-            ) : (
-              <div className="company-culture-content">
-                {companyInfo || "No information available"}
-              </div>
-            )}
+            <div className="company-culture-content">
+              {loading ? (
+                <div className="loader"></div>
+              ) : (
+                <p>{companyInfo}</p>
+              )}
+            </div>
           </div>
         )}
 

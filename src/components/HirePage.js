@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useJobs } from '../contexts/JobContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import '../styles/HirePage.css';
 
 const HirePage = () => {
@@ -19,7 +20,6 @@ const HirePage = () => {
     description: '',
     salaryRange: '',
     applyLink: '',
-   // aboutLink: '',
     companyDescription: '',
   });
 
@@ -32,8 +32,17 @@ const HirePage = () => {
   };
 
   const handleSubmit = async () => {
+    const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+
+    // Summarize the company description
+    const prompt = `Summarize the following content about company culture and work environment in 200 words: ${formData.companyDescription}`;
+    const result = await model.generateContent(prompt);
+    const summary = result.response.text();
+
     await addJob({
       ...formData,
+      companyDescription: summary, // Store the summarized info
       createdBy: user?.uid,
       userName: user?.displayName,
     });
@@ -204,17 +213,3 @@ const HirePage = () => {
 
 export default HirePage;
 
-
-
-/*
-<div className="form-group">
-                <input
-                  type="text"
-                  name="aboutLink"
-                  value={formData.aboutLink}
-                  onChange={handleChange}
-                  placeholder="Enter Company Career/About Page Link"
-                  className="form-input"
-                />
-              </div>
-              */
