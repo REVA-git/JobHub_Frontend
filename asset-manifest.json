@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/JobHub_Frontend/static/css/main.251f6f27.css",
-    "main.js": "/JobHub_Frontend/static/js/main.cff249a0.js",
+    "main.js": "/JobHub_Frontend/static/js/main.204c85ec.js",
     "static/js/488.c824442e.chunk.js": "/JobHub_Frontend/static/js/488.c824442e.chunk.js",
     "index.html": "/JobHub_Frontend/index.html",
     "main.251f6f27.css.map": "/JobHub_Frontend/static/css/main.251f6f27.css.map",
-    "main.cff249a0.js.map": "/JobHub_Frontend/static/js/main.cff249a0.js.map",
+    "main.204c85ec.js.map": "/JobHub_Frontend/static/js/main.204c85ec.js.map",
     "488.c824442e.chunk.js.map": "/JobHub_Frontend/static/js/488.c824442e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.251f6f27.css",
-    "static/js/main.cff249a0.js"
+    "static/js/main.204c85ec.js"
   ]
 }
